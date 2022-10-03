@@ -1,0 +1,39 @@
+---
+title: "Learn *JavaScript for R*"
+author: shitao
+format: html
+---
+
+```{r}
+#| include: false
+
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+# Prerequisties
+
+## JSON
+
+JOSN (JavaScript Object Notation) is to all intents and purposes the equivalent of lists in R; a flexible data format that can store pretty much anything-except data.frames, a structure that does not exist in JavaScript.
+
+```{r}
+library(jsonlite)
+
+lst <- list(
+  a = 1,
+  b = list(
+    c = c("A", "B")
+  ),
+  d= 1:5
+)
+
+toJSON(lst, pretty = TRUE)
+
+toJSON(lst)
+```
+
+Set `pretty` to `TRUE` to add indentation for cleaner printing, but this is an augument you should omit when writing production code; it will reduce the file size (fewer spaces = smaller file size).
